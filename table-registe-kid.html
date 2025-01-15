@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="table-registe-kid.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<header><div class="navbar">
+    <img src="images/logo.png" alt="Your Logo" />
+    <div>
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="our_programs.html">Our Programs</a>
+            <div class="dropdown-content">
+                <a href="mathematics.html">Mathematics</a>
+                <a href="science.html">Science</a>
+            </div>
+        </div>
+        <a href="studypack.html">StudyPack</a>
+        <a href="branch.html">Branch</a>
+        <a href="register.html">Register Now!</a>
+        <a href="contact.html">Contact Us</a>
+        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+            <a href="update.html">
+                <img src="/images/profile.jpg" class="profile" alt="Profile">
+            </a>
+        <?php else: ?>
+            <a href="sign_in.php">Login</a>
+        <?php endif; ?>
+    </div>
+</div></header>
+<body>
+    
+
+    <div class="form">
+        <h1>Student Registration</h1>
+        <form action="kid-register" method="POST"> <!-- Added method attribute -->
+            <table>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Age</th>
+                    <th>IC</th>    
+                </tr>
+                <tr>
+                    <td>
+                        <label for="kid-name">Full name</label>
+                        <input type="text" id="kid-name" name="kid-name" required placeholder="Enter student name">
+                    </td>
+                    <td>
+                        <label for="age">Age</label>
+                        <select id="age" name="age" required>
+                            <option value="7">7</option>
+                            <option value="8">8</option> 
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for="ic">IC Number</label>
+                        <input type="text" id="ic" name="ic" required placeholder="Enter IC number">
+                    </td>
+                </tr>
+            </table>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2024 Thinkify. For assignment purpose only.
+    </footer>
+</body>
+</html>
